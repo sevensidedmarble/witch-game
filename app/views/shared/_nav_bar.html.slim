@@ -1,0 +1,28 @@
+nav.navbar.is-primary aria-label=("main navigation") role="navigation"
+  .navbar-brand
+    a.navbar-item
+      strong LTW
+    a.navbar-burger.burger aria-expanded="false" aria-label="menu" data-target="navbarBasicExample" role="button"
+      span aria-hidden="true"
+      span aria-hidden="true"
+      span aria-hidden="true"
+  #navbarBasicExample.navbar-menu
+    .navbar-start
+      a.navbar-item
+        | Open Rooms
+    .navbar-end
+      - if current_user
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link
+            img.avatar src="#{current_user.avatar_url}" /
+            = current_user.username
+          .navbar-dropdown
+            a.navbar-item Account
+            hr.navbar-divider/
+            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item'
+      - else
+        .navbar-item
+          .buttons
+            a.button.is-primary
+              strong Sign up
+            a.button.is-light Log in

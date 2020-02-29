@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
 
   validates :username, uniqueness: true, presence: true
+
+  def avatar_url
+    url = "https://robohash.org/#{username}"
+  end
 end

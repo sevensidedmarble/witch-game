@@ -1,0 +1,8 @@
+= form_with model: @room do |f|
+  .field
+    = f.label :name, class: "label"
+    .control
+      = f.text_field :name, class: 'input'
+  .field
+    .control
+      = f.submit 'Save', class: 'button is-success'

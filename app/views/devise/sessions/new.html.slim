@@ -1,0 +1,29 @@
+section.section
+  .columns.is-centered
+    .column.is-half
+      .box
+        h1.title.has-text-centered Log in
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .field
+            = f.label :email, class: "label"
+            .control
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "input"
+          .field
+            = f.label :username, class: "label"
+            .control
+              = f.input :username, required: true, class: "input"
+          .field
+            = f.label :password, class: "label"
+            .control
+              = f.password_field :password, autocomplete: "current-password", class: "input"
+          - if devise_mapping.rememberable?
+            .field
+              .control
+                label.checkbox
+                  = f.check_box :remember_me, type: "checkbox", class: "checkbox"
+                  | Remember me
+          .field
+            .control
+              = f.submit "Log in", class: "button is-primary"
+        hr
+        = render "devise/shared/links"

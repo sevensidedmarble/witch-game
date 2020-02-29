@@ -1,0 +1,9 @@
+- content_for :content do
+  = render partial: 'shared/nav_bar'
+  - flash.each do |type, msg|
+    .notification.is-info
+      button.delete
+      = msg
+  section.section
+    == yield
+= render template: "layouts/application"

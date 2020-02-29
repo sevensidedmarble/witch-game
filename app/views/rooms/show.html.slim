@@ -1,0 +1,44 @@
+= javascript_pack_tag 'room'
+= javascript_pack_tag 'room'
+.grow-layout
+  h1.title
+    = @room.name
+  .subtitle Ongoing game
+  .columns
+    .column.is-3
+      = render partial: 'rooms'
+    .column.is-9
+      .chat.has-background-light data-channel-subscribe="room" data-room-id="#{@room.id}"
+        - @room_messages.each do |room_message|
+          .is-flex.flex-row
+            .col-auto.text-center
+              img.avatar alt="" src="#{room_message.user.avatar_url}" /
+            .col
+              .message-content
+                p title="#{room_message.created_at}"
+                  = room_message.message
+      = form_with model: @room_message, remote: true do |f|
+        .field.has-addons.main-input
+          .control.is-expanded
+            = f.text_field :message, as: :string, \
+              wrapper: false,                     \
+              label: false,                       \
+              class: 'input',                     \
+              input_html: {                       \
+                class: 'input'                    \
+              }
+          .control
+            .field
+              = f.submit "Send", class: 'button is-primary'
+        = f.hidden_field :room_id
+
+.d-none data-role="message-template"
+  .chat-message-container
+    .row.no-gutters
+      .col-auto.text-center
+        img.avatar alt="" data-role="user-avatar" src="" /
+      .col
+        .message-content
+          p.mb-1 data-role="message-text"
+          .text-right
+            small data-role="message-date"

@@ -1,0 +1,8 @@
+= link_to new_room_path, class: "button is-primary" do
+  | Create a room
+- if @rooms.present?
+  nav.is-flex.flex-col.mt1
+    - @rooms.each do |room|
+      = link_to room.name, room_path(room), class: "nav-link room-nav-link"
+- else
+  p.mt1 The are no rooms

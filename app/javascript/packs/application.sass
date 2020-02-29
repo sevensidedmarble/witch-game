@@ -1,1 +1,44 @@
+@import "~bulma/sass/utilities/initial-variables"
+@import "~bulma/sass/utilities/functions"
+
+.avatar
+  max-height: 25px
+  border: 1px solid lightgrey
+  border-radius: 100px
+  margin-right: .5em
+
+.mt1
+  margin-top: 1em
+
+.flex-col
+  flex-direction: column
+
+.chat
+  flex-grow: 1
+  padding: 1em
+
+.main-input
+  margin-top: 1em
+
+.grow-layout
+  height: 80vh
+  display: flex
+  flex-direction: column
+  .columns
+    flex-grow: 1
+    .column
+      flex-direction: column
+      display: flex
+
+$primary: #5E5184 !default
+$link: $primary !default
+
+/****************/
+/* Derived vars */
+/****************/
+@import "~bulma/sass/utilities/derived-variables"
+
+$link-invert: $primary-invert !default
+$link-focus-border: $primary !default
+
 @import '~bulma'
