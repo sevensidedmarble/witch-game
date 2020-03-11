@@ -2,7 +2,7 @@
   "name": "lynch_the_witch",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/actioncable": "^6.0.2-1",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "4.2.2",
     "bulma": "^0.8.0",
