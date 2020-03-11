@@ -5,8 +5,9 @@ html
     meta name="author" content="sevensidedmarble"
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all'
+    / I think I can get by with just using webpacker for css...
+    / = stylesheet_link_tag 'application', media: 'all'
+    / = stylesheet_pack_tag 'style'
     = javascript_pack_tag 'application'
-    = stylesheet_pack_tag 'application'
   body
     = content_for?(:content) ? yield(:content) : yield
